@@ -2,8 +2,20 @@ const passkey = "$2a$12$NLUB7OFNY.HEPT5lVp0ZSOWf3dh/OMR67HXOMJAs0DDCIGRq/RALS";
 let sessionId = undefined;
 const SERVER_URL = "http://34.239.254.164:3000";
 const siloName = "EAM work history insights";
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/a/macros/sedintechnologies.com/s/AKfycbxYR6NC6PXWLDp98oQ0VtCdZc4SXOXZhK7IbbZ3mMMFj8IkVCtHzIiUGvU0P30vfCIn/exec";
+
+TarkaChat.init({
+  title: "AskMai",
+  botName: "AskMai",
+  // greeting: "Welcome. How can I assist you today?",
+  greeting:
+    "Hello! I am AskMai, your friendly guide to find out asset workorder history insights",
+  themeColor: "#16a1e3",
+  selectorId: "chatbot",
+  expand: true,
+  enableUpload: false,
+  // preChatRenderer: (onClose) => getPreChatScreen(onClose),
+  submitHandler: (message) => onMessageSubmit(message),
+});
 
 startSession(passkey)
   .then((val) => {
