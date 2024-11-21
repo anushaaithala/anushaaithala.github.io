@@ -5,20 +5,6 @@ const siloName = "EAM work history insights";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/a/macros/sedintechnologies.com/s/AKfycbxYR6NC6PXWLDp98oQ0VtCdZc4SXOXZhK7IbbZ3mMMFj8IkVCtHzIiUGvU0P30vfCIn/exec";
 
-TarkaChat.init({
-  title: "AskMai",
-  botName: "AskMai",
-  // greeting: "Welcome. How can I assist you today?",
-  greeting:
-    "Hello! I am AskMai, your friendly guide to understanding Asset workorder history for Asset- EAM-LFT-MIC-001",
-  themeColor: "#16a1e3",
-  selectorId: "chatbot",
-  expand: true,
-  enableUpload: false,
-  // preChatRenderer: (onClose) => getPreChatScreen(onClose),
-  submitHandler: (message) => onMessageSubmit(message),
-});
-
 startSession(passkey)
   .then((val) => {
     sessionId = val;

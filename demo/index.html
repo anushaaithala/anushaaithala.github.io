@@ -31,6 +31,21 @@
     </div>
 
     <div id="chatbot"></div>
-
+    
+    <script>
+      const chat = TarkaChat.init({
+        title: "Ask Mai",
+        botName: "Ask Mai",
+        greeting: "Welcome. How can I assist you today?",
+        themeColor: "#F0DAFB",
+        selectorId: "chatbot",
+        expand: true,
+        submitHandler: (message) => onMessageSubmit(message)
+        ,
+      })
+      
+      // chat.toggle(), chat.isOpen();
+    </script>
+    
   </body>
 </html>
