@@ -115,7 +115,7 @@ async function onMessageSubmit(message) {
     const configs = localStorage.getItem("vidura-bot-configs");
     // const { passkey, sessionId } = JSON.parse(configs);
     const url = `${SERVER_URL}/api/chat`;
-    console.log(sessionId);
+    //console.log(sessionId);
     const response = await fetch(url, {
       method: "POST",
       headers: {
