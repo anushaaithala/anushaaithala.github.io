@@ -16,6 +16,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Include this javscript -->
     <script src="https://d1fmfone96g0x2.cloudfront.net/tarka-chat-2.4.4.umd.js"></script>
+    <script src="vidurachatbotIntegration.js"></script>
   </head>
   <body>
     <div class="container">
@@ -31,24 +32,5 @@
 
     <div id="chatbot"></div>
 
-    <!-- Initialise the tarka chat component -->
-    <script>
-      const chat = TarkaChat.init({
-        title: "Ask Mai",
-        botName: "Ask Mai",
-        greeting: "Welcome. How can I assist you today?",
-        themeColor: "#F0DAFB",
-        selectorId: "chatbot",
-        expand: true,
-        submitHandler: async function (message) {
-          //Do API calls
-          console.log("got message!");
-          // after getting response
-          return Promise.resolve("Recieved: " + message);
-        },
-      });
-      
-      // chat.toggle(), chat.isOpen();
-    </script>
   </body>
 </html>
