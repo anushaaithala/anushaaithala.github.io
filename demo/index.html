@@ -16,8 +16,12 @@
   </style>
 </head>
 <body>
-  const urlParams = new URLSearchParams(window.location.search);
-  const asset = urlParams.get('assetnum');
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const assetnum = urlParams.get('assetnum');
+    document.getElementById("assetnum").innerHTML = assetnum;
+  </script>
   <style>
     body {
       background-image: url('/demo/vidura-hero.png');
