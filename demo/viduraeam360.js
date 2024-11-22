@@ -130,11 +130,13 @@ async function onMessageSubmit(message) {
       body: JSON.stringify({ message, sessionId, silo: siloName,assetnum:assetnum1,siteid:siteid1 }),
     });
     const data = await response.json();
-    if (data?.content !="Error: No response from API") {
-      return data?.content;
-    } else {
+    if (data?.content =="Error: No response from API") {
       return "Sorry ! Could not find any closed workorders data for this asset in last 3 years";
-    }
+    } else if (data?.content =="An error occurred while processing your query.") {
+      return "Sorry ! I am unable to comprehend your question. Could you try reframing your question and asking again?";
+    } else {
+      return data?.content;
+    } 
     
     // const responseMessage = data.content || "No response";
     // // Log chat history to Google Sheets via Google Apps Script
