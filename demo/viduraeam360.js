@@ -127,7 +127,7 @@ async function onMessageSubmit(message) {
         Authorization: "Bearer " + passkey,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, sessionId, silo: siloName }),
+      body: JSON.stringify({ message, sessionId, silo: siloName,assetnum:assetnum1,siteid:siteid1 }),
     });
     const data = await response.json();
     return data?.content;
