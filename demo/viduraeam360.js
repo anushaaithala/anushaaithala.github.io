@@ -91,6 +91,7 @@ async function startSession(passkey) {
     const url = `${SERVER_URL}/api/start-session`;
     const response = await fetch(url, {
       method: "GET",
+      mode:"cors",
       headers: { Authorization: "Bearer " + passkey },
     });
     const data = await response.json();
