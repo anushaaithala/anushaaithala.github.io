@@ -2,7 +2,12 @@ const passkey = "$2a$10$2Cj3msXTk515hi7gT4CbEeUgWAuN2nq/WsM5bNVXoOehZzRfudaN2";
 let sessionId = undefined;
 const SERVER_URL = "http://demo.eam360.com:3000";
 const siloName = "EAM work history insights";
-
+const queryString1 = window.location.search;
+const urlParams1 = new URLSearchParams(queryString1);
+const assetnum1 = urlParams.get('assetnum');
+const siteid1 = urlParams.get('siteid');
+console.log(assetnum1);
+console.log(siteid1);
 TarkaChat.init({
   title: "AskMai",
   botName: "AskMai",
