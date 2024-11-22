@@ -1,6 +1,6 @@
 const passkey = "$2a$10$2Cj3msXTk515hi7gT4CbEeUgWAuN2nq/WsM5bNVXoOehZzRfudaN2";
 let sessionId = undefined;
-const SERVER_URL = "http://demo.eam360.com:3000";
+const SERVER_URL = "https://maximo.eam360.com/maximo/webclient/login/login.jsp";
 const siloName = "EAM work history insights";
 const queryString1 = window.location.search;
 const urlParams1 = new URLSearchParams(queryString1);
