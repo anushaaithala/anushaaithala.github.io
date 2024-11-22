@@ -16,15 +16,22 @@
   </style>
 </head>
 <body>
+  <div id="asset_div"> </div>
+  <div id="site_div"> </div>
   
- 
   <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const assetnum = urlParams.get('assetnum');
     const siteid = urlParams.get('siteid');
-    document.getElementById("assetnum").value = assetnum;
-    document.getElementById("siteid").value = siteid;
+    var parentasset = document.getElementById("asset_div");
+    var parentsite = document.getElementById("site_div");
+    var inputasset = document.createElement("input");
+    var inputsite = document.createElement("input");
+    inputasset.value = assetnum;
+    inputasset.value = siteid;
+    parentasset.appendChild(inputasset)
+    parentsite.appendChild(inputasset)
   </script>
   <style>
     body {
@@ -40,10 +47,10 @@
       Click on the bottom right icon to Chat with Ask Mai.
     </p>
     <p style="color:rgb(253, 253, 253);">
-      Asset number is :<input id="assetnum">
+      Asset number is :<div id="asset_div"> </div>
     </p>
     <p style="color:rgb(253, 253, 253);">
-      Site is : <input id="siteid">
+      Site is : <div id="site_div"> </div>
     </p>
   </div>
   
