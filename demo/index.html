@@ -16,12 +16,15 @@
   </style>
 </head>
 <body>
-  <input id="assetnum" value="">
+  <div id="assetnum" value=""></div>
+  <div id="siteid" value=""></div>
   <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const assetnum = urlParams.get('assetnum');
+    const siteid = urlParams.get('siteid');
     document.getElementById("assetnum").value = assetnum;
+    document.getElementById("siteid").value = siteid;
   </script>
   <style>
     body {
@@ -35,7 +38,6 @@
     <h1 style="color:rgb(253, 253, 253);">Welcome to Vidura Ask Mai</h1>
     <p style="color:rgb(253, 253, 253);">
       Click on the bottom right icon to Chat with Ask Mai.
-      assetnum
     </p>
   </div>
   
