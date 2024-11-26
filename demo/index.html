@@ -13,6 +13,7 @@
       font-family: Garamond, serif;
     }
     </style>
+   
   <style>
     .container {
       max-width: 800px;
@@ -60,8 +61,42 @@
     <p style="color:rgb(253, 253, 253);">
       Click on the bottom right icon to Chat with Ask Mai.
     </p>
-  
+    <form id="mainForm" name="mainForm" >
+      <legend style="color:rgb(253, 253, 253);">Choose what you want to Ask Mai.</legend>
+      <div>
+        <input type="radio" id="document" name="silos" value="Ask Mai regarding the Asset document/manual" />
+        <label for="document" style="color:rgb(253, 253, 253);">Ask Mai regarding the Asset document/manual</label>
+      </div>
+      <div>
+        <input type="radio" id="assethistory" name="silos" value="Ask Mai regarding Asset Work order History" />
+        <label for="assethistory" style="color:rgb(253, 253, 253);">Ask Mai regarding Asset Work order History</label>
+      </div>
+      
+    </form>
+    <p id="result" style="color:rgb(253, 253, 253)"></p>
   </div>
+  <script>
+    document.mainForm.onclick = function(){
+      let radVal = document.forms.mainForm.silos.value;
+      localStorage.clear();
+      if ( radVal !== null && radVal!=="" ){
+        result.innerHTML = 'You selected: '+radVal;
+        document.getElementById("document").disabled=true;
+        document.getElementById("assethistory").disabled=true;
+        console.log(radVal)
+        console.log(localStorage.getItem("siloName"));
+        if (radVal=="Ask Mai regarding the Asset document/manual")
+            {localStorage.setItem("siloName", assetnum);}
+        else
+            {localStorage.setItem("siloName", "EAM work history insights");}
+        console.log(localStorage.getItem("siloName"));
+        }
+      else
+        {
+       result.innerHTML ='Please select a radio button'
+        }
+}
+    </script>
   
   <div id="chatbot"></div>
   <script src="/demo/viduraeam360.js"></script>

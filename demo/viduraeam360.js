@@ -1,13 +1,16 @@
 const passkey = "$2a$10$2Cj3msXTk515hi7gT4CbEeUgWAuN2nq/WsM5bNVXoOehZzRfudaN2";
 let sessionId = undefined;
+//const siloName = localStorage.getItem("siloName");
 const SERVER_URL = "http://demo.eam360.com:3000";
-const siloName = "EAM work history insights";
+//const siloName="EAM work history insights";
 const queryString1 = window.location.search;
 const urlParams1 = new URLSearchParams(queryString1);
 const assetnum1 = urlParams.get('assetnum');
 const siteid1 = urlParams.get('siteid');
-console.log(assetnum1);
-console.log(siteid1);
+//console.log(assetnum1);
+//console.log(siteid1);
+
+
 TarkaChat.init({
   title: "AskMai",
   botName: "AskMai",
@@ -19,6 +22,7 @@ TarkaChat.init({
   expand: true,
   enableUpload: false,
   // preChatRenderer: (onClose) => getPreChatScreen(onClose),
+
   submitHandler: (message) => onMessageSubmit(message),
 });
 
@@ -27,7 +31,7 @@ startSession(passkey)
     sessionId = val;
     return fetchSilos();
   })
-  .then((silos) => silos.filter((silo) => silo === siloName))
+  .then((silos) => silos.filter((silo) => silo === localStorage.getItem("siloName")))
   .then((silos) => showSilos(silos));
 
 function getPreChatScreen(onClose) {
@@ -87,11 +91,11 @@ function selectSilo(silo) {
 }
 // //start session
 async function startSession(passkey) {
+  localStorage.clear();
   try {
     const url = `${SERVER_URL}/api/start-session`;
     const response = await fetch(url, {
       method: "GET",
-      mode:"cors",
       headers: { Authorization: "Bearer " + passkey },
     });
     const data = await response.json();
@@ -128,7 +132,7 @@ async function onMessageSubmit(message) {
         Authorization: "Bearer " + passkey,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, sessionId, silo: siloName,assetnum:assetnum1,siteid:siteid1 }),
+      body: JSON.stringify({ message, sessionId, silo: localStorage.getItem("siloName"),assetnum:assetnum1,siteid:siteid1 }),
     });
     const data = await response.json();
     if (data?.content =="Error: No response from API") {
