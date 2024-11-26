@@ -91,7 +91,7 @@ function selectSilo(silo) {
 }
 // //start session
 async function startSession(passkey) {
-  localStorage.clear();
+  localStorage.removeItem('siloName');
   try {
     const url = `${SERVER_URL}/api/start-session`;
     const response = await fetch(url, {

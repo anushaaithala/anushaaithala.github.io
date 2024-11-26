@@ -78,7 +78,7 @@
   <script>
     document.mainForm.onclick = function(){
       let radVal = document.forms.mainForm.silos.value;
-      localStorage.clear();
+      localStorage.removeItem('siloName');;
       if ( radVal !== null && radVal!=="" ){
         result.innerHTML = 'You selected: '+radVal;
         document.getElementById("document").disabled=true;
