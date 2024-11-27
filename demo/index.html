@@ -7,7 +7,7 @@
   <!--meta  http-equiv="Referrer-Policy"  content="no-referrer, strict-origin-when-cross-origin" /-->
   <!--meta name="referrer" content="origin" /-->
   <script src="https://d1fmfone96g0x2.cloudfront.net/tarka-chat-2.4.0.umd.js"></script>
-  <title>Ask Mai Chat Bot</title>
+  <title>AskMai Chat Bot</title>
   <style>
     body {
       font-family: Garamond, serif;
@@ -15,10 +15,10 @@
     </style>
    
   <style>
-    .container {
+      .container {
       max-width: 800px;
       margin: auto;
-      margin-top: 100px;
+      margin-top: 0px;
     }
   </style>
 </head>
@@ -29,35 +29,14 @@
   <p style="color:rgb(253, 253, 253);">
     Site ID : </p> 
   <div id="site_div"> </div>
-
-  
-  
-  <script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const assetnum = urlParams.get('assetnum');
-    const siteid = urlParams.get('siteid');
-    var parentasset = document.getElementById("asset_div");
-    var parentsite = document.getElementById("site_div");
-    var inputasset = document.createElement("input");
-    var inputsite = document.createElement("input");
-    inputasset.value = assetnum;
-    inputsite.value = siteid;
-    inputasset.disabled=true;
-    inputsite.disabled=true;
-    parentasset.appendChild(inputasset)
-    parentsite.appendChild(inputsite)
-  </script>
-  <style>
-    body {
-      background-image: url('/demo/vidura-hero.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed; 
-      background-size: 100% 100%;
-    }
-    </style>
+  <p style="color:rgb(253, 253, 253);">
+    Workorder Number : </p> 
+  <div id="wonum_div"> </div>
+  <p style="color:rgb(253, 253, 253);">
+    Location : </p> 
+  <div id="location_div"> </div>
   <div class="container">
-    <h1 style="color:rgb(253, 253, 253);">Welcome to Vidura Ask Mai</h1>
+    <h1 style="color:rgb(253, 253, 253);">Welcome to AskMai !</h1>
     <p style="color:rgb(253, 253, 253);">
       Click on the bottom right icon to Chat with Ask Mai.
     </p>
@@ -76,27 +55,68 @@
     <p id="result" style="color:rgb(253, 253, 253)"></p>
   </div>
   <script>
-    document.mainForm.onclick = function(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const assetnum = urlParams.get('assetnum');
+    const siteid = urlParams.get('siteid');
+    const wonum = urlParams.get('wonum');
+    const locationnum = urlParams.get('location');
+    var parentasset = document.getElementById("asset_div");
+    var parentsite = document.getElementById("site_div");
+    var parentwonum = document.getElementById("wonum_div");
+    var parentlocation = document.getElementById("location_div");
+    var inputasset = document.createElement("input");
+    var inputsite = document.createElement("input");
+    var inputwonum = document.createElement("input");
+    var inputlocation = document.createElement("input");
+    inputasset.value = assetnum;
+    inputsite.value = siteid;
+    inputwonum.value = wonum;
+    inputlocation.value = locationnum;
+    inputasset.disabled=true;
+    inputsite.disabled=true;
+    inputwonum.disabled=true;
+    inputlocation.disabled=true;
+    parentasset.appendChild(inputasset)
+    parentsite.appendChild(inputsite)
+    parentwonum.appendChild(inputwonum)
+    parentlocation.appendChild(inputlocation)
+  </script>
+  <style>
+    body {
+      background-image: url('/demo/vidura-hero.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-size: 100% 100%;
+    }
+    </style>
+  <script>
+    document.mainForm.onclick = function()
+    {
       let radVal = document.forms.mainForm.silos.value;
       localStorage.removeItem('siloName');;
       if ( radVal !== null && radVal!=="" ){
         result.innerHTML = 'You selected: '+radVal;
-        document.getElementById("document").disabled=true;
-        document.getElementById("assethistory").disabled=true;
         console.log(radVal)
         console.log(localStorage.getItem("siloName"));
         if (radVal=="Ask Mai regarding the Asset document/manual")
-            {localStorage.setItem("siloName", assetnum);}
+            {
+            localStorage.setItem("siloName", assetnum);
+            document.getElementById("assethistory").disabled=true;
+            }
         else
-            {localStorage.setItem("siloName", "EAM work history insights");}
+            {
+            localStorage.setItem("siloName", "EAM work history insights");
+            document.getElementById("document").disabled=true;
+            }
         console.log(localStorage.getItem("siloName"));
         }
       else
         {
        result.innerHTML ='Please select a radio button'
         }
-}
-    </script>
+    }
+  </script>
   
   <div id="chatbot"></div>
   <script src="/demo/viduraeam360.js"></script>
