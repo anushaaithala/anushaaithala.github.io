@@ -8,7 +8,7 @@ const urlParams1 = new URLSearchParams(queryString1);
 const assetnum1 = urlParams1.get('assetnum');
 const siteid1 = urlParams1.get('siteid');
 const siloName = urlParams1.get('silo');
-//console.log(assetnum1);
+console.log(siloName);
 //console.log(siteid1);
 
 
@@ -92,7 +92,7 @@ function selectSilo(silo) {
 }
 // //start session
 async function startSession(passkey) {
-  localStorage.removeItem('siloName');
+  //localStorage.removeItem('siloName');
   try {
     const url = `${SERVER_URL}/api/start-session`;
     const response = await fetch(url, {
