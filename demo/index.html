@@ -74,8 +74,10 @@
     }
     </style>
   <script>
-      const silo = urlParams.get('silo');
-      localStorage.removeItem('siloName');
+      const queryString1 = window.location.search;
+      const urlParams1 = new URLSearchParams(queryString1);
+      const silo = urlParams1.get('silo');
+      localStorage.removeItem("siloName");
       if ( silo !== null && silo!=="" )
       {
         console.log(silo)
@@ -90,7 +92,6 @@
             }
         console.log(localStorage.getItem("siloName"));
       }
-      
   </script>
   
   <div id="chatbot"></div>
