@@ -43,7 +43,7 @@
     const urlParams = new URLSearchParams(queryString);
     const assetnum = urlParams.get('assetnum');
     const siteid = urlParams.get('siteid');
-    const silo = urlParams.get('siloname');
+    const silo = urlParams.get('silo');
     const locationnum = urlParams.get('location');
     var parentasset = document.getElementById("asset_div");
     var parentsite = document.getElementById("site_div");
@@ -75,11 +75,11 @@
     }
     </style>
   <script>
-          localStorage.removeItem('siloName');
+      localStorage.removeItem('siloName');
       if ( silo !== null && silo!=="" )
       {
-            console.log(silo)
-            console.log(localStorage.getItem("siloName"));
+        console.log(silo)
+        console.log(localStorage.getItem("siloName"));
         if (silo=="historywo")
             {
             localStorage.setItem("siloName", "EAM work history insights");
