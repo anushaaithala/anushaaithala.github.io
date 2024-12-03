@@ -5,8 +5,9 @@ const SERVER_URL = "https://demo.eam360.com:3000";
 //const siloName="EAM work history insights";
 const queryString1 = window.location.search;
 const urlParams1 = new URLSearchParams(queryString1);
-const assetnum1 = urlParams.get('assetnum');
-const siteid1 = urlParams.get('siteid');
+const assetnum1 = urlParams1.get('assetnum');
+const siteid1 = urlParams1.get('siteid');
+const siloName = urlParams1.get('silo');
 //console.log(assetnum1);
 //console.log(siteid1);
 
@@ -31,7 +32,7 @@ startSession(passkey)
     sessionId = val;
     return fetchSilos();
   })
-  .then((silos) => silos.filter((silo) => silo === localStorage.getItem("siloName")))
+  .then((silos) => silos.filter((silo) => silo === siloName))
   .then((silos) => showSilos(silos));
 
 function getPreChatScreen(onClose) {
@@ -132,7 +133,7 @@ async function onMessageSubmit(message) {
         Authorization: "Bearer " + passkey,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, sessionId, silo: localStorage.getItem("siloName"),assetnum:assetnum1,siteid:siteid1 }),
+      body: JSON.stringify({ message, sessionId, silo: siloName,assetnum:assetnum1,siteid:siteid1 }),
     });
     const data = await response.json();
     if (data?.content =="Error: No response from API") {

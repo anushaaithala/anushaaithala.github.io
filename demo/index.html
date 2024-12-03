@@ -72,28 +72,7 @@
       background-attachment: fixed; 
       background-size: 100% 100%;
     }
-    </style>
-  <script>
-      const queryString1 = window.location.search;
-      const urlParams1 = new URLSearchParams(queryString1);
-      const silo = urlParams1.get('silo');
-      localStorage.removeItem("siloName");
-      if ( silo !== null && silo!=="" )
-      {
-        console.log(silo)
-        console.log(localStorage.getItem("siloName"));
-        if (silo=="historywo")
-            {
-            localStorage.setItem("siloName", "EAM work history insights");
-            }
-        else
-            {
-            localStorage.setItem("siloName", silo);
-            }
-        console.log(localStorage.getItem("siloName"));
-      }
-  </script>
-  
+  </style> 
   <div id="chatbot"></div>
   <script src="/demo/viduraeam360.js"></script>
 
