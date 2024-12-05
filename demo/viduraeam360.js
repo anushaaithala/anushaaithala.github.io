@@ -17,7 +17,7 @@ TarkaChat.init({
   botName: "AskMai",
   // greeting: "Welcome. How can I assist you today?",
   greeting:
-    "Hello! I am AskMai, your friendly guide to find out asset workorder history insights",
+    "Hello! I am AskMai, your friendly guide to find out asset insights",
   themeColor: "#16a1e3",
   selectorId: "chatbot",
   expand: true,
