@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--meta http-equiv="Content-Security-Policy" content="default-src 'self'"/-->
+  <!--meta  http-equiv="Referrer-Policy"  content="no-referrer, strict-origin-when-cross-origin" /-->
+  <!--meta name="referrer" content="origin" /-->
+  <script src="https://d1fmfone96g0x2.cloudfront.net/tarka-chat-2.4.0.umd.js"></script>
+  <title>AskMai Chat Bot</title>
+  <style>
+    body {
+      font-family: Garamond, serif;
+    }
+    </style>
+   
+  <style>
+      .container {
+      max-width: 800px;
+      margin: auto;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <p style="color:rgb(253, 253, 253);">
+    Asset number considered :</p>
+  <div id="asset_div"> </div>
+  <p style="color:rgb(253, 253, 253);">
+    Site ID : </p> 
+  <div id="site_div"> </div>
+  <p style="color:rgb(253, 253, 253);">
+    Location : </p> 
+  <div id="location_div"> </div>
+  <div class="container">
+    <h1 style="color:rgb(253, 253, 253);">Welcome to AskMai !</h1>
+    <p style="color:rgb(253, 253, 253);">
+      Click on the bottom right icon to Chat with Ask Mai.
+    </p>
+  </div>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const assetnum = urlParams.get('assetnum');
+    const siteid = urlParams.get('siteid');
+    const locationnum = urlParams.get('location');
+    var parentasset = document.getElementById("asset_div");
+    var parentsite = document.getElementById("site_div");
+    //var parentwonum = document.getElementById("wonum_div");
+    var parentlocation = document.getElementById("location_div");
+    var inputasset = document.createElement("input");
+    var inputsite = document.createElement("input");
+    //var inputwonum = document.createElement("input");
+    var inputlocation = document.createElement("input");
+    inputasset.value = assetnum;
+    inputsite.value = siteid;
+    //inputwonum.value = wonum;
+    inputlocation.value = locationnum;
+    inputasset.disabled=true;
+    inputsite.disabled=true;
+    //inputwonum.disabled=true;
+    inputlocation.disabled=true;
+    parentasset.appendChild(inputasset)
+    parentsite.appendChild(inputsite)
+    //parentwonum.appendChild(inputwonum)
+    parentlocation.appendChild(inputlocation)
+  </script>
+  <style>
+    body {
+      background-image: url('/demo/vidura-hero.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-size: 100% 100%;
+    }
+  </style> 
+  <div id="chatbot"></div>
+  <script src="/demo/viduraeam360.js"></script>
+
+</body>
+</html>
