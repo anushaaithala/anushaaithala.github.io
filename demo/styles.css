@@ -15,10 +15,9 @@ body {
   line-height: 1.6;
 }
 
-.wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.welcome-wrapper {
+  max-width: 40%;
+  padding: 80px 80px;
   text-align: auto;
 }
 
@@ -48,7 +47,7 @@ label {
 }
 
 input[type="text"] {
-  width: 50%;
+  width: 70%;
   padding: 10px;
   margin-top: 5px;
   border: 2px solid #ccc;
@@ -77,4 +76,12 @@ input[type="text"]:disabled {
   .info-item input[type="text"] {
     font-size: 0.9em;
   }
+}
+
+#tarka-chat {
+  width: 100%;
+}
+
+#tarka-chat .t-container {
+  width: 60% !important;
 }
