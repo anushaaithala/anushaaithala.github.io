@@ -9,6 +9,12 @@ const assetnum1 = urlParams1.get('assetnum');
 const siteid1 = urlParams1.get('siteid');
 const siloName = urlParams1.get('silo');
 console.log(siloName);
+if (siloName=="EAM work history insights")
+   {msg="Hello! I am AskMai, Your friendly guide sharing insights based on Work History";
+   }
+else
+   {msg="Hello! I am AskMai, your friendly guide sharing insights based on Asset Documents";
+   }
 //console.log(siteid1);
 
 
@@ -16,8 +22,7 @@ TarkaChat.init({
   title: "AskMai",
   botName: "AskMai",
   // greeting: "Welcome. How can I assist you today?",
-  greeting:
-    "Hello! I am AskMai, your friendly guide to find out asset insights",
+  greeting:msg,
   themeColor: "#16a1e3",
   selectorId: "chatbot",
   expand: true,
